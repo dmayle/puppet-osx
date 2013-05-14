@@ -5,17 +5,17 @@
 # Examples
 #
 #   # set the repeat rate to 0 (the default)...
-#   include osx::global::key_repeat_rate
+#   include osx::keyboard::key_repeat_rate
 #
 #   # ...or pick your own repeat rate!
-#   class { 'osx::global::key_repeat_rate':
+#   class { 'osx::keyboard::key_repeat_rate':
 #     rate => 2
 #   }
-class osx::global::key_repeat_rate($rate = 0) {
+class osx::keyboard::key_repeat_rate($rate) {
   boxen::osx_defaults { 'key repeat rate':
+    user   => $::boxen_user,
     domain => 'NSGlobalDomain',
     key    => 'KeyRepeat',
     value  => $rate,
-    user   => $::boxen_user;
   }
 }
