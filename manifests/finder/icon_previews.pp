@@ -20,7 +20,8 @@ class osx::finder::icon_previews($enabled) {
     user   => $::boxen_user,
     key    => 'FXRecentFolders',
     domain => 'com.apple.finder',
-    value  => (),
+    type   => 'array',
+    value  => '()',
     notify => Exec['killall Finder'],
   }
 }
