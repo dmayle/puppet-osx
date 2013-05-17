@@ -13,7 +13,11 @@ class osx::finder::icon_previews($enabled) {
     "/usr/libexec/plistbuddy -c 'Set :ComputerViewSettings:ExtendedListViewSettings:showIconPreview ${enabled}' /Users/${::boxen_user}/Library/Preferences/com.apple.finder.plist",
   ]:
 
-    notify => Exec['Remove All .DS_Store Files'],
+    notify => [
+      Exec['killall Finder'],
+      Exec['Remove All .DS_Store Files'],
+      Exec['Remove All Existing Icon Previews'],
+    ],
   }
 
   boxen::osx_defaults { 'Remove All Existing Icon Previews':
