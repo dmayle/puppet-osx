@@ -6,11 +6,11 @@ class osx::finder::date_format($format) {
   }
 
   exec { [
-    "/usr/libexec/plistbuddy -c 'Set :FK_StandardViewSettings:ListViewSettings:useRelativeDates ${enabled}' /Users/${::boxen_user}/Library/Preferences/com.apple.finder.plist",
-    "/usr/libexec/plistbuddy -c 'Set :FK_StandardViewSettings:ExtendedListViewSettings:useRelativeDates ${enabled}' /Users/${::boxen_user}/Library/Preferences/com.apple.finder.plist",
-    "/usr/libexec/plistbuddy -c 'Set :StandardViewSettings:ListViewSettings:useRelativeDates ${enabled}' /Users/${::boxen_user}/Library/Preferences/com.apple.finder.plist",
-    "/usr/libexec/plistbuddy -c 'Set :StandardViewSettings:ExtendedListViewSettings:useRelativeDates ${enabled}' /Users/${::boxen_user}/Library/Preferences/com.apple.finder.plist",
-    "/usr/libexec/plistbuddy -c 'Set :ComputerViewSettings:ListViewSettings:useRelativeDates ${enabled}' /Users/${::boxen_user}/Library/Preferences/com.apple.finder.plist",
-    "/usr/libexec/plistbuddy -c 'Set :ComputerViewSettings:ExtendedListViewSettings:useRelativeDates ${enabled}' /Users/${::boxen_user}/Library/Preferences/com.apple.finder.plist",
+    "/usr/libexec/plistbuddy -c 'Set :FK_StandardViewSettings:ListViewSettings:useRelativeDates ${format_bool}' /Users/${::boxen_user}/Library/Preferences/com.apple.finder.plist",
+    "/usr/libexec/plistbuddy -c 'Set :FK_StandardViewSettings:ExtendedListViewSettings:useRelativeDates ${format_bool}' /Users/${::boxen_user}/Library/Preferences/com.apple.finder.plist",
+    "/usr/libexec/plistbuddy -c 'Set :StandardViewSettings:ListViewSettings:useRelativeDates ${format_bool}' /Users/${::boxen_user}/Library/Preferences/com.apple.finder.plist",
+    "/usr/libexec/plistbuddy -c 'Set :StandardViewSettings:ExtendedListViewSettings:useRelativeDates ${format_bool}' /Users/${::boxen_user}/Library/Preferences/com.apple.finder.plist",
+    "/usr/libexec/plistbuddy -c 'Set :ComputerViewSettings:ListViewSettings:useRelativeDates ${format_bool}' /Users/${::boxen_user}/Library/Preferences/com.apple.finder.plist",
+    "/usr/libexec/plistbuddy -c 'Set :ComputerViewSettings:ExtendedListViewSettings:useRelativeDates ${format_bool}' /Users/${::boxen_user}/Library/Preferences/com.apple.finder.plist",
   ]: }
 }
