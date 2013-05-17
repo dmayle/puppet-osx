@@ -6,6 +6,7 @@ class osx::energy::disk_sleep(
     exec { 'Set Time Until Disk Sleeps When on Battery Power':
       command => "pmset -b disksleep ${on_battery}",
       user    => root,
+      unless  => "pmset -g custom | grep 'Battery Power' -A 16 | grep -E '^\sdisksleep\s+${on_battery}'",
     }
   }
 
@@ -13,6 +14,7 @@ class osx::energy::disk_sleep(
     exec { 'Set Time Until Disk Sleeps When Plugged In':
       command => "pmset -c disksleep ${when_plugged_in}",
       user    => root,
+      unless  => "pmset -g custom | grep 'AC Power' -A 17 | grep -E '^\sdisksleep\s+${when_plugged_in}'",
     }
   }
 }
