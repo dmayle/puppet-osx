@@ -1,12 +1,23 @@
 class osx::system::host_name($name) {
-  exec { [
-            "hostname ${name}",
-            "scutil --set ComputerName $name",
-            "scutil --set HostName $name",
-            "scutil --set LocalHostName $name",
-         ]:
 
-    user => root,
+  exec { "hostname ${name}":
+    unless => "hostname | grep ${name}",
+    user   => root,
+  }
+
+  exec { "scutil --set ComputerName $name":
+    unless => "scutil --get ComputerName | grep ${name}",
+    user   => root,
+  }
+
+  exec { "scutil --set HostName $name":
+    unless => "scutil --get HostName | grep ${name}",
+    user   => root,
+  }
+
+  exec { "scutil --set LocalHostName $name":
+    unless => "scutil --get LocalHostName | grep ${name}",
+    user   => root,
   }
 
   boxen::osx_defaults { 'Update Computer NetBIOS Host Name - Part 1':
