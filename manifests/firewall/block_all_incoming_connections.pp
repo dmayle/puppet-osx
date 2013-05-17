@@ -8,6 +8,7 @@ class osx::firewall::block_all_incoming_connections($enabled) {
 
   exec { 'Toggle Whether the Firewall Blocks All Non-Essential Incoming Connections':
     command => "${osx::firewall::config::path_to_binary} --setblockall ${enabled_value}",
+    unless  => "${osx::firewall::config::path_to_binary} --getblockall | grep ${enabled_value}",
     user    => root,
   }
 }
