@@ -8,6 +8,7 @@ class osx::airport::require_password_for_computer_to_computer_networks($enabled)
 
   exec { 'Toggle Airport "Require Password for Computer-to-Computer Networks" Preference':
     command => "${osx::airport::path_to_binary} prefs RequireAdminIBSS=${enabled_yes_no}",
+    unless  => "${osx::airport::path_to_binary} prefs RequireAdminIBSS | grep ${enabled_yes_no}",
     user    => root,
   }
 }
