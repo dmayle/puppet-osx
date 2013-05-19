@@ -16,6 +16,7 @@ class osx::keyboard::key_repeat_rate($rate) {
     user   => $::boxen_user,
     domain => 'NSGlobalDomain',
     key    => 'KeyRepeat',
+    type   => 'float',
     value  => $rate,
   }
 }

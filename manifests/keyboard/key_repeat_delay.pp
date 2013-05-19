@@ -16,6 +16,7 @@ class osx::keyboard::key_repeat_delay($delay) {
     user   => $::boxen_user,
     domain => 'NSGlobalDomain',
     key    => 'InitialKeyRepeat',
+    type   => 'int',
     value  => $delay,
   }
 }
