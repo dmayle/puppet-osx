@@ -127,6 +127,14 @@ class { 'osx::dock::icon_size':
 }
 ```
 
+## Airdrop
+
+```puppet
+class { 'osx::aidrop::all_interfaces':
+  allow => true
+}
+```
+
 ## Required Puppet Modules
 
 * boxen
