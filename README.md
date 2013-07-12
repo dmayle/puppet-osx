@@ -46,6 +46,14 @@ class { 'osx::dock::autohide':
 }
 ```
 
+`osx::dock::hidden_app_dimming` - dims icons of hidden apps
+
+```puppet
+class { 'osx::dock::hidden_app_dimming':
+  enabled => true
+}
+```
+
 ### Finder Settings
 
 * `osx::finder::show_external_hard_drives_on_desktop`
