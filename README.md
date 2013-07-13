@@ -405,6 +405,14 @@ class { 'osx::keyboard::key_repeat_rate':
 }
 ```
 
+### Launchpad
+
+`osx::launchpad::reset` - reset launchpad
+
+```puppet
+include osx::launchpad::reset
+```
+
 ### Universal Access Settings
 
 * `osx::universal_access::ctrl_mod_zoom` - enables zoom by scrolling while
