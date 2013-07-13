@@ -19,22 +19,20 @@ Just `include` any of these in your manifest.
 
 ### Global Settings
 
-* `osx::global::disable_key_press_and_hold` - disable press-and-hold for
-  accented character entry
-* `osx::global::enable_keyboard_control_access` - enables the keyboard for
-  navigating controls in dialogs
-* `osx::global::expand_print_dialog` - expand the print dialog by default
-* `osx::global::expand_save_dialog` - expand the save dialog by default
 * `osx::global::disable_remote_control_ir_receiver` - disable remote control infrared receiver
 * `osx::global::disable_autocorrect` - disables spelling autocorrection
 
 ### Dock Settings
 
-* `osx::dock::2d` - use the old flat dock style
-* `osx::dock::clear` - ensures the dock only contains apps that are running
-* `osx::dock::disable` - disable the dock by setting a long autohide-delay
-* `osx::dock::dim_hidden_apps` - dims icons of hidden apps
-* `osx::dock::autohide` - automatically hide the dock
+`osx::dock::disable` - disable the dock by setting a long autohide-delay
+
+`osx::dock::clear` - ensures the dock only contains apps that are running
+
+```puppet
+include osx::dock::clear
+```
+
+`osx::dock::autohide` - automatically hide the dock
 
 ```puppet
 class { 'osx::dock::autohide':
@@ -419,23 +417,10 @@ class { 'osx::keyboard::key_repeat_rate':
 * `osx::disable_app_quarantine` - disable the downloaded app quarantine
 * `osx::no_network_dsstores` - disable creation of .DS_Store files on network
   shares
-* `osx::software_update` - download and install software updates
 
 ## Customizable Settings
 
 These settings can be used like one-shots or customized.
-
-`osx::global::natural_mouse_scrolling` - enable/disable 'natural' mouse scrolling. *Requires re-login for new settings to initialize.*
-
-```puppet
-# Set the default value (enabled=true)
-include osx::global::natural_mouse_scrolling
-
-# ... or set your own
-class { 'osx::global::natural_mouse_scrolling':
-  enabled => false
-}
-```
 
 `osx::universal_access::cursor_size` - the amount the cursor will be zoomed
 
