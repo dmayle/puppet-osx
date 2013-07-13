@@ -34,7 +34,7 @@ Just `include` any of these in your manifest.
 * `osx::dock::clear` - ensures the dock only contains apps that are running
 * `osx::dock::disable` - disable the dock by setting a long autohide-delay
 * `osx::dock::dim_hidden_apps` - dims icons of hidden apps
-`osx::dock::autohide` - automatically hide the dock
+* `osx::dock::autohide` - automatically hide the dock
 
 ```puppet
 class { 'osx::dock::autohide':
@@ -398,6 +398,15 @@ class { 'osx::keyboard::key_repeat_delay':
 }
 ```
 
+`osx::keyboard::key_repeat_rate` - the amount of time (in ms) before key repeat
+  'presses'
+
+```puppet
+class { 'osx::keyboard::key_repeat_rate':
+  rate => 0
+}
+```
+
 ### Universal Access Settings
 
 * `osx::universal_access::ctrl_mod_zoom` - enables zoom by scrolling while
@@ -416,17 +425,6 @@ class { 'osx::keyboard::key_repeat_delay':
 
 These settings can be used like one-shots or customized.
 
-`osx::global::key_repeat_rate` - the amount of time (in ms) before key repeat
-  'presses'
-
-```puppet
-include osx::global::key_repeat_rate
-
-class { 'osx::global::key_repeat_rate':
-  rate => 0
-}
-```
-
 `osx::global::natural_mouse_scrolling` - enable/disable 'natural' mouse scrolling. *Requires re-login for new settings to initialize.*
 
 ```puppet
@@ -438,7 +436,6 @@ class { 'osx::global::natural_mouse_scrolling':
   enabled => false
 }
 ```
-
 
 `osx::universal_access::cursor_size` - the amount the cursor will be zoomed
 
