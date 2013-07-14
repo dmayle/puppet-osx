@@ -707,6 +707,14 @@ class { 'osx::system::host_name':
 }
 ```
 
+`osx::system::restart_on_hang` - restart automatically if system hangs
+
+```puppet
+class { 'osx::system::restart_on_hang':
+  enabled => true,
+}
+```
+
 ### Universal Access Settings
 
 * `osx::universal_access::ctrl_mod_zoom` - enables zoom by scrolling while
