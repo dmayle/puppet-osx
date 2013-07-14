@@ -547,6 +547,14 @@ class { 'osx::network::default_login_name':
 }
 ```
 
+`osx::network::dsstores` - create .DS_Store files on network volumes
+
+```puppet
+class { 'osx::network::dsstores':
+  enabled => true,
+}
+```
+
 ### Universal Access Settings
 
 * `osx::universal_access::ctrl_mod_zoom` - enables zoom by scrolling while
@@ -557,8 +565,6 @@ class { 'osx::network::default_login_name':
 ### Miscellaneous Settings
 
 * `osx::disable_app_quarantine` - disable the downloaded app quarantine
-* `osx::no_network_dsstores` - disable creation of .DS_Store files on network
-  shares
 
 ## Customizable Settings
 
