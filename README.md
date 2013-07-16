@@ -1183,12 +1183,12 @@ class { 'osx::touchpad::gestures::app_expose':
 
 `osx::touchpad::gestures::four_finger_horizontal_swipe` - set the effect for left/right swipe with four fingers to one of the following:
 
-* 'disable'
+* 'disabled'
 * 'switch apps'
 
 ```puppet
 class { 'osx::touchpad::gestures::four_finger_horizontal_swipe':
-  effect => 'disable',
+  effect => 'disabled',
 }
 ```
 
