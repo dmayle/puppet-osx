@@ -1095,8 +1095,10 @@ class { 'osx::system::host_name':
 `osx::system::restart_on_hang` - restart automatically if system hangs
 
 ```puppet
+include osx::system::restart_on_hang
+
 class { 'osx::system::restart_on_hang':
-  enabled => true,
+  ensure => 'present'
 }
 ```
 
