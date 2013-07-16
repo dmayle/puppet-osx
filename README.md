@@ -904,8 +904,10 @@ class { 'osx::network::dsstores':
 `osx::network::guest` - enable guest access to shared folders
 
 ```puppet
+include osx::network::guest
+
 class { 'osx::network::guest':
-  enabled => true,
+  ensure => 'present'
 }
 ```
 
