@@ -129,6 +129,26 @@ class { 'osx::appearance::sidebar_icons':
 }
 ```
 
+## Dashboard
+
+`osx::dashboard` - enable dashboard
+
+```puppet
+class { 'osx::dashboard':
+  enabled => false,
+}
+```
+
+## Debug Mode
+
+`osx::debug_mode` - toggles various debug modes
+
+```puppet
+class { 'osx::debug_mode':
+  enabled => true,
+}
+```
+
 ## Desktop
 
 `osx::desktop::displayed_items` - display items on desktop
@@ -228,105 +248,9 @@ class { 'osx::displays::auto_brightness_adjustment':
 }
 ```
 
-
-## Dashboard
-
-`osx::dashboard` - enable dashboard
-
-```puppet
-class { 'osx::dashboard':
-  enabled => false,
-}
-```
-
-## Debug Mode
-
-`osx::debug_mode` - toggles various debug modes
-
-```puppet
-class { 'osx::debug_mode':
-  enabled => true,
-}
-```
-
-## Firewall
-
-`osx::firewall` - toggles firewall
-
-```puppet
-class { 'osx::firewall
-  enabled => true,
-}
-```
-
-## Gatekeeper
-
-`osx::gatekeeper` - toggles gatekeeper
-
-```puppet
-class { 'osx::gatekeeper
-  enabled => true,
-}
-```
-
-## Global Settings
-
-`osx::global::disable_remote_control_ir_receiver` - disable remote control infrared receiver
-`osx::global::disable_autocorrect` - disables spelling autocorrection
-
-## Hot Corners
-
-`osx::hot_corners` - set actions to hot corners:
-
-Corners:
-
-* 'bottom left'
-* 'bottom right'
-* 'top right'
-* 'top left'
-
-Actions:
-
-* 'do nothing'
-* 'mission control'
-* 'show application windows'
-* 'desktop'
-* 'start screensaver'
-* 'disable screensaver'
-* 'dashboard'
-* 'sleep display'
-* 'launchpad'
-* 'notification center'
-
-```puppet
-class { 'osx::hot_corners
-  corner => 'bottom left',
-  action => 'mission control',
-}
-```
-
-## Screen Capture
-
-`osx::screen_capture` - set screen capture settings
-
-```puppet
-class { 'osx::screen_capture
-  format     => 'jpg',
-  location   => '/tmp',
-  add_shadow => false,
-  base_name  => 'screencap_',
-}
-```
-
 ## Dock
 
 `osx::dock::disable` - disable the dock by setting a long autohide-delay
-
-`osx::dock::clear` - ensures the dock only contains apps that are running
-
-```puppet
-include osx::dock::clear
-```
 
 `osx::dock::autohide` - automatically hide the dock
 
@@ -337,6 +261,12 @@ class { 'osx::dock::autohide':
   ensure => 'present'
   delay   => 0,
 }
+```
+
+`osx::dock::clear` - ensures the dock only contains apps that are running
+
+```puppet
+include osx::dock::clear
 ```
 
 `osx::dock::hidden_app_dimming` - dims icons of hidden apps
@@ -588,6 +518,14 @@ class { 'osx::finder::status_bar':
 
 ## Firewall
 
+`osx::firewall` - toggles firewall
+
+```puppet
+class { 'osx::firewall
+  enabled => true,
+}
+```
+
 `osx::firewall::auto_allow_signed_applications` - allow signed apps to automatically accept incoming connections
 
 ```puppet
@@ -617,6 +555,52 @@ class { 'osx::firewall::logging_mode':
 ```puppet
 class { 'osx::firewall::stealth_mode':
   enabled => true,
+}
+```
+
+## Gatekeeper
+
+`osx::gatekeeper` - toggles gatekeeper
+
+```puppet
+class { 'osx::gatekeeper
+  enabled => true,
+}
+```
+
+## Global Settings
+
+`osx::global::disable_remote_control_ir_receiver` - disable remote control infrared receiver
+`osx::global::disable_autocorrect` - disables spelling autocorrection
+
+## Hot Corners
+
+`osx::hot_corners` - set actions to hot corners:
+
+Corners:
+
+* 'bottom left'
+* 'bottom right'
+* 'top right'
+* 'top left'
+
+Actions:
+
+* 'do nothing'
+* 'mission control'
+* 'show application windows'
+* 'desktop'
+* 'start screensaver'
+* 'disable screensaver'
+* 'dashboard'
+* 'sleep display'
+* 'launchpad'
+* 'notification center'
+
+```puppet
+class { 'osx::hot_corners
+  corner => 'bottom left',
+  action => 'mission control',
 }
 ```
 
@@ -894,6 +878,19 @@ class { 'osx::safari::homepage':
 ```puppet
 class { 'osx::safari::thumbnail_cache':
   enabled => true,
+}
+```
+
+## Screen Capture
+
+`osx::screen_capture` - set screen capture settings
+
+```puppet
+class { 'osx::screen_capture
+  format     => 'jpg',
+  location   => '/tmp',
+  add_shadow => false,
+  base_name  => 'screencap_',
 }
 ```
 
