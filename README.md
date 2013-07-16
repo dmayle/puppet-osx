@@ -783,8 +783,10 @@ class { 'osx::login::guest':
 `osx::login::power_options` - show power options on the login screen
 
 ```puppet
+include osx::login::power_options
+
 class { 'osx::login::power_options':
-  shown => true
+  ensure => 'present'
 }
 ```
 
