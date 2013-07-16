@@ -398,13 +398,13 @@ class { 'osx::energy::sleep':
 
 ## Finder
 
-`osx::finder::unhide_library` - unsets the hidden flag on ~/Library
-
 `osx::finder::allow_quit` - allow quit finder
 
 ```puppet
+include osx::finder::allow_quit
+
 class { 'osx::finder::allow_quit':
-  enabled => true
+  ensure => 'present'
 }
 ```
 
@@ -525,6 +525,9 @@ class { 'osx::finder::status_bar':
   enabled => true,
 }
 ```
+
+`osx::finder::unhide_library` - unsets the hidden flag on ~/Library
+
 
 ## Firewall
 
