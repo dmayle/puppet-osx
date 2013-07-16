@@ -753,8 +753,10 @@ class { 'osx::login::admin_information':
 `osx::login::auto_login` - automatically login a user
 
 ```puppet
+include osx::login::auto_login
+
 class { 'osx::login::auto_login':
-  enabled => true
+  ensure => 'present'
 }
 ```
 
