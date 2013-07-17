@@ -1341,7 +1341,7 @@ class { 'osx::universal_access::flash_screen':
 
 ```puppet
 class { 'osx::windows::animations':
-  enabled => true,
+  ensure => 'present'
   resize_duration => 4,
 }
 ```
