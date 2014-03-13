@@ -1,10 +1,11 @@
 # TODO add validation of date formats and explanation of date formats in readme 
 #
-include osx::system::ui_server
 
 class osx::menu_bar::date(
   $format    = undef,
   $is_analog = undef) {
+
+  include osx::system::ui_server
 
   if $format != undef {
     boxen::osx_defaults { 'Sets the Format of the Date in the Menu Bar':
