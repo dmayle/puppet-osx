@@ -6,7 +6,7 @@ class osx::energy::hibernation(
     exec { 'Set Time Until the System Hibernates When on Battery Power':
       command => "pmset -b standbydelay ${on_battery}",
       user    => root,
-      unless  => "pmset -g custom | grep 'Battery Power' -A 16 | grep -E '^\sstandbydelay\s+${on_battery}'",
+      unless  => "pmset -g custom | sed -ne '/Battery Power:/,/^.*:/p' | grep -E '^\sstandbydelay\s+${on_battery}'",
     }
   }
 
@@ -14,7 +14,7 @@ class osx::energy::hibernation(
     exec { 'Set Time Until the System Hibernates When Plugged In':
       command => "pmset -c standbydelay ${when_plugged_in}",
       user    => root,
-      unless  => "pmset -g custom | grep 'AC Power' -A 17 | grep -E '^\sstandbydelay\s+${when_plugged_in}'",
+      unless  => "pmset -g custom | sed -ne '/AC Power:/,/^.*:/p' | grep -E '^\sstandbydelay\s+${when_plugged_in}'",
     }
   }
 }

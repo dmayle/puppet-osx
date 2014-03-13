@@ -6,7 +6,7 @@ class osx::energy::display_sleep(
     exec { 'Set Time Until Display Sleeps When on Battery Power':
       command => "pmset -b displaysleep ${on_battery}",
       user    => root,
-      unless  => "pmset -g custom | grep 'Battery Power' -A 16 | grep -E '^\sdisplaysleep\s+${on_battery}'",
+      unless  => "pmset -g custom | sed -ne '/Battery Power:/,/^.*:/p' | grep -E '^\sdisplaysleep\s+${on_battery}'",
     }
   }
 
@@ -14,7 +14,7 @@ class osx::energy::display_sleep(
     exec { 'Set Time Until Display Sleeps When Plugged In':
       command => "pmset -c displaysleep ${when_plugged_in}",
       user    => root,
-      unless  => "pmset -g custom | grep 'AC Power' -A 17 | grep -E '^\sdisplaysleep\s+${when_plugged_in}'",
+      unless  => "pmset -g custom | sed -ne '/AC Power:/,/^.*:/p' | grep -E '^\sdisplaysleep\s+${when_plugged_in}'",
     }
   }
 }

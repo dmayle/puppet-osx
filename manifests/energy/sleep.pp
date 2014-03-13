@@ -6,7 +6,7 @@ class osx::energy::sleep(
     exec { 'Set Time Until System Sleeps When on Battery Power':
       command => "pmset -b sleep ${on_battery}",
       user    => root,
-      unless  => "pmset -g custom | grep 'Battery Power' -A 16 | grep -E '^\ssleep\s+${on_battery}'",
+      unless  => "pmset -g custom | sed -ne '/Battery Power:/,/^.*:/p' | grep -E '^\ssleep\s+${on_battery}'",
     }
   }
 
@@ -14,7 +14,7 @@ class osx::energy::sleep(
     exec { 'Set Time Until System Sleeps When Plugged In':
       command => "pmset -c sleep ${when_plugged_in}",
       user    => root,
-      unless  => "pmset -g custom | grep 'AC Power' -A 17 | grep -E '^\ssleep\s+${when_plugged_in}'",
+      unless  => "pmset -g custom | sed -ne '/AC Power:/,/^.*:/p' | grep -E '^\ssleep\s+${when_plugged_in}'",
     }
   }
 }
